@@ -3,6 +3,7 @@ import sys
 import json
 from datetime import datetime
 
+import environs
 import requests
 from flask import Flask, request
 
@@ -54,4 +55,6 @@ def send_message(recipient_id, message_text):
     response.raise_for_status()
 
 if __name__ == '__main__':
+    env = environs.Env()
+    env.read_env()
     app.run(debug=True)
